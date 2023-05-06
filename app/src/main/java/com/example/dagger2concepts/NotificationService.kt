@@ -13,8 +13,8 @@ class EmailService @Inject constructor() : NotificationService {
     }
 }
 
-class MessageService @Inject constructor() : NotificationService {
+class MessageService(private val retryCount: Int) : NotificationService {
     override fun send(to: String, from: String, body: String?) {
-        Log.e("Dagger Hero", "Message Sent")
+        Log.e("Dagger Hero", "Message Sent - Retry Count $retryCount")
     }
 }
