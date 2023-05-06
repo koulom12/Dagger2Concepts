@@ -7,15 +7,19 @@ interface UserRepository {
     fun saveUser(email: String, password: String)
 }
 
-class SQLRepository @Inject constructor() : UserRepository {
+@ActivityScope
+class SQLRepository @Inject constructor(private val analyticsService: AnalyticsService) : UserRepository {
     override fun saveUser(email: String, password: String) {
         Log.e("Dagger Hero", "User Saved in DB")
+        analyticsService.createEvent("Save User", "Create")
     }
 }
 
 
-class FirebaseRepository @Inject constructor() : UserRepository {
+class FirebaseRepository @Inject constructor(private val analyticsService: AnalyticsService) : UserRepository {
     override fun saveUser(email: String, password: String) {
         Log.e("Dagger Hero", "User Saved in Firebase")
+        analyticsService.createEvent("Save User", "Create")
+
     }
 }

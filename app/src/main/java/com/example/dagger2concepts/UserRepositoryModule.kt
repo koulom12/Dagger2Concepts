@@ -7,5 +7,6 @@ import dagger.Module
 abstract class UserRepositoryModule {
 
     @Binds
-    abstract fun getFirebaseRepository(sqlRepository: SQLRepository) : UserRepository
+    @ActivityScope
+    abstract fun getSQLRepository(sqlRepository: SQLRepository) : UserRepository
 }
