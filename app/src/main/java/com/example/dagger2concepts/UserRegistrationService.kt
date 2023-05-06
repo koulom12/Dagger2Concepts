@@ -2,11 +2,12 @@ package com.example.dagger2concepts
 
 import javax.inject.Inject
 
+
 class UserRegistrationService @Inject constructor(private val userRepository: UserRepository,
-                              private val emailService: EmailService
+                              private val notificationService: NotificationService
 ) {
-    fun registerUser(email:String, password: String) {
+    fun registerUser(email: String, password: String) {
         userRepository.saveUser(email, password)
-        emailService.send(email, "koulom12@gmail.com", "User Registered")
+        notificationService.send(email, "koulom12@gmail.com", "User Registered")
     }
 }
