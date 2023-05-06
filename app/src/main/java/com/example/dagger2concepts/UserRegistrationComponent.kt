@@ -10,8 +10,8 @@ interface UserRegistrationComponent {
 
     fun inject(mainActivity: MainActivity)
 
-    @Subcomponent.Factory
-    interface Factory {
-        fun create(@BindsInstance retryCount: Int) : UserRegistrationComponent
-    }
+//    @Subcomponent.Factory
+//    interface Factory {
+//        fun create(@BindsInstance retryCount: Int) : UserRegistrationComponent
+//    }
 }
